@@ -1,1 +1,1 @@
-# Nejlepsi projekt ever frfr trust
+# Projekt v djangu o hudebni aplikaci
