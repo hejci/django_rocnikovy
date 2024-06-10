@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Author List</title>
-</head>
-<body>
-    <h1>Authors</h1>
+{% extends 'base/base.html' %}
+
+{% block title %}Authors{% endblock %}
+
+{% block content %}
+    <h2>Authors</h2>
     <ul>
         {% for author in authors %}
-            <li>
-                <a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a>
-            </li>
+            <li><a href="{% url 'author_detail' author.pk %}">{{ author.name }}</a></li>
         {% endfor %}
     </ul>
-    <a href="{% url 'author_new' %}">Add New Author</a>
-</body>
-</html>
+    <a href="{% url 'author_new' %}">Add new author</a>
+{% endblock %}

@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Song List</title>
-</head>
-<body>
-    <h1>Songs</h1>
+{% extends 'base/base.html' %}
+
+{% block title %}Songs{% endblock %}
+
+{% block content %}
+    <h2>Songs</h2>
     <ul>
         {% for song in songs %}
-            <li>
-                <a href="{% url 'song_detail' song.pk %}">{{ song.title }} by {{ song.artist }}</a>
-            </li>
+            <li><a href="{% url 'song_detail' song.pk %}">{{ song.title }}</a></li>
         {% endfor %}
     </ul>
-    <a href="{% url 'song_new' %}">Add New Song</a>
-</body>
-</html>
+    <a href="{% url 'song_new' %}">Add new song</a>
+{% endblock %}
+

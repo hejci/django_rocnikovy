@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>{{ song.title }}</title>
-</head>
-<body>
-    <h1>{{ song.title }}</h1>
-    <p>Artist: {{ song.artist }}</p>
+{% extends 'base/base.html' %}
+
+{% block title %}Song Detail{% endblock %}
+
+{% block content %}
+    <h2>{{ song.title }}</h2>
     <p>Album: <a href="{% url 'album_detail' song.album.pk %}">{{ song.album.title }}</a></p>
-    <p>Genres:
-        {% for genre in song.genres.all %}
-            {{ genre.name }}{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </p>
-    <p>Author: <a href="{% url 'author_detail' song.author.pk %}">{{ song.author.name }}</a></p>
-    <a href="{% url 'song_edit' song.pk %}">Edit</a>
-    <a href="{% url 'song_list' %}">Back to Song List</a>
-</body>
-</html>
+    <a href="{% url 'song_edit' song.pk %}">Edit song</a>
+{% endblock %}

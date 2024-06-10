@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Album List</title>
-</head>
-<body>
-    <h1>Albums</h1>
+{% extends 'base/base.html' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block content %}
+    <h2>Albums</h2>
     <ul>
         {% for album in albums %}
-            <li>
-                <a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a>
-            </li>
+            <li><a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a></li>
         {% endfor %}
     </ul>
-    <a href="{% url 'album_new' %}">Add New Album</a>
-</body>
-</html>
+    <a href="{% url 'album_new' %}">Add new album</a>
+{% endblock %}

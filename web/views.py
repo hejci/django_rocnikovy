@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Author, Genre, Album, Song, Playlist
-from .forms import AuthorForm, GenreForm, AlbumForm, SongForm, PlaylistForm
+from .forms import AuthorForm, SongForm, PlaylistForm
 
 
 # Author views
@@ -101,3 +101,7 @@ def playlist_edit(request, pk=None):
     else:
         form = PlaylistForm(instance=playlist)
     return render(request, 'playlist_edit.html', {'form': form})
+
+
+def landing_page(request):
+    return render(request, 'landing_page.html')

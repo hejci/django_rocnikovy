@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>{% if form.instance.pk %}Edit Playlist{% else %}New Playlist{% endif %}</title>
-</head>
-<body>
-    <h1>{% if form.instance.pk %}Edit Playlist{% else %}New Playlist{% endif %}</h1>
+{% extends 'base/base.html' %}
+
+{% block title %}Edit Playlist{% endblock %}
+
+{% block content %}
+    <h2>Edit Playlist</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>
     </form>
-    <a href="{% url 'playlist_list' %}">Back to Playlist List</a>
-</body>
-</html>
+{% endblock %}
+
