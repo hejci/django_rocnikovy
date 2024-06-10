@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Song List</title>
+</head>
+<body>
+    <h1>Songs</h1>
+    <ul>
+        {% for song in songs %}
+            <li>
+                <a href="{% url 'song_detail' song.pk %}">{{ song.title }} by {{ song.artist }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'song_new' %}">Add New Song</a>
+</body>
+</html>

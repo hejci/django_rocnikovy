@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Genre List</title>
+</head>
+<body>
+    <h1>Genres</h1>
+    <ul>
+        {% for genre in genres %}
+            <li>
+                <a href="{% url 'genre_detail' genre.pk %}">{{ genre.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'genre_new' %}">Add New Genre</a>
+</body>
+</html>

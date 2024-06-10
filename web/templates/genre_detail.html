@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ genre.name }}</title>
+</head>
+<body>
+    <h1>{{ genre.name }}</h1>
+    <a href="{% url 'genre_edit' genre.pk %}">Edit</a>
+    <a href="{% url 'genre_list' %}">Back to Genre List</a>
+</body>
+</html>

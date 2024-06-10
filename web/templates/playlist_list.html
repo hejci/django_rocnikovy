@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Playlist List</title>
+</head>
+<body>
+    <h1>Playlists</h1>
+    <ul>
+        {% for playlist in playlists %}
+            <li>
+                <a href="{% url 'playlist_detail' playlist.pk %}">{{ playlist.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'playlist_new' %}">Add New Playlist</a>
+</body>
+</html>

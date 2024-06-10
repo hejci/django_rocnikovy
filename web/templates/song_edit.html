@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% if form.instance.pk %}Edit Song{% else %}New Song{% endif %}</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Edit Song{% else %}New Song{% endif %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'song_list' %}">Back to Song List</a>
+</body>
+</html>
