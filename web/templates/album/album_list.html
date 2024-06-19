@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Albums</h2>
+        <ul class="list-group">
+            {% for album in albums %}
+                <li class="list-group-item bg-dark text-white">
+                    <a href="{% url 'album_detail' album.pk %}" class="text-success">{{ album.title }}</a>
+                    <span class="text-muted">by {{ album.artist }}</span>
+                    <a href="{% url 'album_edit' album.pk %}" class="btn btn-success btn-sm float-right ml-2">Edit</a>
+                    <a href="{% url 'album_delete' album.pk %}" class="btn btn-danger btn-sm float-right">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'album_new' %}" class="btn btn-success mt-4">Add new album</a>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Playlists{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Playlists</h2>
+        <ul class="list-group">
+            {% for playlist in playlists %}
+                <li class="list-group-item bg-dark text-white">
+                    <a href="{% url 'playlist_detail' playlist.pk %}" class="text-success">{{ playlist.title }}</a>
+                    <a href="{% url 'playlist_edit' playlist.pk %}" class="btn btn-success btn-sm float-right ml-2">Edit</a>
+                    <a href="{% url 'playlist_delete' playlist.pk %}" class="btn btn-danger btn-sm float-right">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'playlist_new' %}" class="btn btn-success mt-4">Add new playlist</a>
+    </div>
+{% endblock %}
+
+
+

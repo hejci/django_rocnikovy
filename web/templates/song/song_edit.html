@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Add/Edit Song{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Song</h2>
+        <form method="post" class="bg-dark text-white p-4 rounded">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ form.title.value|default_if_none:'' }}">
+                {% if form.title.errors %}
+                    <div class="text-danger">
+                        {{ form.title.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="artist">Artist</label>
+                <input type="text" class="form-control" id="artist" name="artist" value="{{ form.artist.value|default_if_none:'' }}">
+                {% if form.artist.errors %}
+                    <div class="text-danger">
+                        {{ form.artist.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="album">Album</label>
+                <input type="text" class="form-control" id="album" name="album" value="{{ form.album.value|default_if_none:'' }}">
+                {% if form.album.errors %}
+                    <div class="text-danger">
+                        {{ form.album.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" name="genre" value="{{ form.genre.value|default_if_none:'' }}">
+                {% if form.genre.errors %}
+                    <div class="text-danger">
+                        {{ form.genre.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="{% url 'song_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}
+
+
+
+

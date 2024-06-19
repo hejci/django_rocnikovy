@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Genres{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Genres</h2>
+        <ul class="list-group">
+            {% for genre in genres %}
+                <li class="list-group-item bg-dark text-white">
+                    <a href="{% url 'genre_detail' genre.pk %}" class="text-success">{{ genre.name }}</a>
+                    <a href="{% url 'genre_edit' genre.pk %}" class="btn btn-success btn-sm float-right ml-2">Edit</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'genre_new' %}" class="btn btn-success mt-4">Add new genre</a>
+    </div>
+{% endblock %}
+

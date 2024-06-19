@@ -23,7 +23,7 @@ class AlbumForm(forms.ModelForm):
 class SongForm(forms.ModelForm):
     class Meta:
         model = Song
-        fields = ['title', 'artist', 'album', 'genres', 'author']
+        fields = ['title', 'artist', 'album', 'genres']
 
 
 class PlaylistForm(forms.ModelForm):
