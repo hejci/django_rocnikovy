@@ -3,7 +3,15 @@
 {% block title %}Author Detail{% endblock %}
 
 {% block content %}
-    <h2>{{ author.name }}</h2>
-    <p>Bio: {{ author.bio }}</p>
-    <a href="{% url 'author_edit' author.pk %}">Edit author</a>
+    <div class="container">
+        <div class="card bg-dark text-white">
+            <div class="card-header">
+                <h2 class="card-title">{{ author.name }}</h2>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Bio: {{ author.bio }}</p>
+                <a href="{% url 'author_edit' author.pk %}" class="btn btn-success">Edit author</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

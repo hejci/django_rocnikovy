@@ -3,12 +3,18 @@
 {% block title %}Songs{% endblock %}
 
 {% block content %}
-    <h2>Songs</h2>
-    <ul>
-        {% for song in songs %}
-            <li><a href="{% url 'song_detail' song.pk %}">{{ song.title }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'song_new' %}">Add new song</a>
+    <div class="container">
+        <h2>Songs</h2>
+        <ul class="list-group">
+            {% for song in songs %}
+                <li class="list-group-item bg-dark text-white">
+                    <a href="{% url 'song_detail' song.pk %}" class="text-success">{{ song.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'song_new' %}" class="btn btn-success mt-4">Add new song</a>
+    </div>
 {% endblock %}
+
+
 

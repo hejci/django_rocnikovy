@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Author, Genre, Album, Song, Playlist
-from .forms import AuthorForm, SongForm, PlaylistForm
+from .forms import AuthorForm, SongForm, PlaylistForm, AlbumForm
 
 
 # Author views
@@ -50,6 +50,23 @@ def album_list(request):
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
     return render(request, 'album_detail.html', {'album': album})
+
+
+def album_edit(request, pk=None):
+    if pk:
+        album = get_object_or_404(Album, pk=pk)
+    else:
+        album = Album()
+    if request.method == "POST":
+        form = AlbumForm(request.POST, instance=album)
+        if form.is_valid():
+            album = form.save(commit=False)
+            album.save()
+            form.save_m2m()  # Save the many-to-many data for genres
+            return redirect('album_detail', pk=album.pk)
+    else:
+        form = AlbumForm(instance=album)
+    return render(request, 'album_edit.html', {'form': form})
 
 
 # Song views

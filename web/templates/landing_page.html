@@ -1,9 +1,43 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Landing Page{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
-    <p>This is your one-stop app for managing your music collection. Explore authors, genres, albums, songs, and
-        playlists.</p>
+    <div class="container">
+        <div class="jumbotron bg-dark text-white">
+            <h2>Welcome to the Music App</h2>
+            <p>This is your one-stop app for managing your music collection. Explore authors, genres, albums, songs, and playlists.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Authors</h5>
+                        <p class="card-text">Discover and manage your favorite music authors.</p>
+                        <a href="{% url 'author_list' %}" class="btn btn-success">Explore Authors</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Genres</h5>
+                        <p class="card-text">Browse music genres to find your favorite tracks.</p>
+                        <a href="{% url 'genre_list' %}" class="btn btn-success">Explore Genres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Playlists</h5>
+                        <p class="card-text">Create and manage your custom playlists.</p>
+                        <a href="{% url 'playlist_list' %}" class="btn btn-success">Explore Playlists</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
 

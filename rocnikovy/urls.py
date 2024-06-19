@@ -32,6 +32,7 @@ urlpatterns = [
 
     path('albums/', views.album_list, name='album_list'),
     path('album/<int:pk>/', views.album_detail, name='album_detail'),
+    path('album/new/', views.album_edit, name='album_new'),
 
     path('songs/', views.song_list, name='song_list'),
     path('song/new/', views.song_edit, name='song_new'),

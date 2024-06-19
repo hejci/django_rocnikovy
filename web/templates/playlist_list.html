@@ -3,11 +3,17 @@
 {% block title %}Playlists{% endblock %}
 
 {% block content %}
-    <h2>Playlists</h2>
-    <ul>
-        {% for playlist in playlists %}
-            <li><a href="{% url 'playlist_detail' playlist.pk %}">{{ playlist.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'playlist_new' %}">Add new playlist</a>
+    <div class="container">
+        <h2>Playlists</h2>
+        <ul class="list-group">
+            {% for playlist in playlists %}
+                <li class="list-group-item bg-dark text-white">
+                    <a href="{% url 'playlist_detail' playlist.pk %}" class="text-success">{{ playlist.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'playlist_new' %}" class="btn btn-success mt-4">Create new playlist</a>
+    </div>
 {% endblock %}
+
+

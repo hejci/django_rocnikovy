@@ -17,7 +17,7 @@ class GenreForm(forms.ModelForm):
 class AlbumForm(forms.ModelForm):
     class Meta:
         model = Album
-        fields = ['title', 'artist', 'release_date', 'genres']
+        fields = ['artist', 'release_date', 'genres']
 
 
 class SongForm(forms.ModelForm):

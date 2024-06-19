@@ -3,11 +3,13 @@
 {% block title %}Edit Playlist{% endblock %}
 
 {% block content %}
-    <h2>Edit Playlist</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-{% endblock %}
+    <div class="container">
+        <h2>Edit Playlist</h2>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            {{ form.as_p }}
 
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </form>
+    </div>
+{% endblock %}

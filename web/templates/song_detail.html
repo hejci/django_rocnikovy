@@ -3,7 +3,17 @@
 {% block title %}Song Detail{% endblock %}
 
 {% block content %}
-    <h2>{{ song.title }}</h2>
-    <p>Album: <a href="{% url 'album_detail' song.album.pk %}">{{ song.album.title }}</a></p>
-    <a href="{% url 'song_edit' song.pk %}">Edit song</a>
+    <div class="container">
+        <div class="card bg-dark text-white mb-3">
+            <div class="card-body">
+                <h2 class="card-title">{{ song.title }}</h2>
+                <p class="card-text"><strong>Artist:</strong> {{ song.artist }}</p>
+                <p class="card-text"><strong>Album:</strong> {{ song.album }}</p>
+                <p class="card-text"><strong>Genre:</strong> {{ song.genre }}</p>
+            </div>
+        </div>
+        <a href="{% url 'song_edit' song.pk %}" class="btn btn-success">Edit song</a>
+    </div>
 {% endblock %}
+
+

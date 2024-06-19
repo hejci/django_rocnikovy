@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +8,27 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-<header>
-    <h1>Welcome to the Music App</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'landing_page' %}">Home</a></li>
-            <li><a href="{% url 'author_list' %}">Authors</a></li>
-            <li><a href="{% url 'genre_list' %}">Genres</a></li>
-            <li><a href="{% url 'album_list' %}">Albums</a></li>
-            <li><a href="{% url 'song_list' %}">Songs</a></li>
-            <li><a href="{% url 'playlist_list' %}">Playlists</a></li>
-        </ul>
-    </nav>
-</header>
-<main>
-    {% block content %}
-    {% endblock %}
-</main>
-<footer>
-    <p>&copy; 2024 Music App. All rights reserved.</p>
-</footer>
+    <header class="bg-success text-white text-center py-3">
+        <h1>Music App</h1>
+    </header>
+    <div class="d-flex">
+        <div class="sidebar bg-dark text-white p-3" style="width: 250px;">
+            <nav class="nav flex-column">
+                <a class="nav-link text-white" href="{% url 'landing_page' %}">Home</a>
+                <a class="nav-link text-white" href="{% url 'author_list' %}">Authors</a>
+                <a class="nav-link text-white" href="{% url 'genre_list' %}">Genres</a>
+                <a class="nav-link text-white" href="{% url 'album_list' %}">Albums</a>
+                <a class="nav-link text-white" href="{% url 'song_list' %}">Songs</a>
+                <a class="nav-link text-white" href="{% url 'playlist_list' %}">Playlists</a>
+            </nav>
+        </div>
+        <main class="p-4" style="flex: 1;">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Music App. All rights reserved.</p>
+    </footer>
 </body>
 </html>
